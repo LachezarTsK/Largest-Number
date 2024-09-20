@@ -48,8 +48,8 @@ private:
         return largestNumber;
     }
 
-    unsigned long long appendTwoIntegers(int first, int second, int numberOfDigits) const {
-        return first * static_cast<unsigned long long>(pow(10, numberOfDigits)) + second;
+    double appendTwoIntegers(int first, int second, int numberOfDigits) const {
+        return first * (pow(10, numberOfDigits)) + second;
     }
 
     int getNumberOfDigits(int value) const {
