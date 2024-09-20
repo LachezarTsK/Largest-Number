@@ -31,8 +31,8 @@ func comparatorAppendedIntegersInDecreasingOrder(first int, second int) bool {
             appendTwoIntegers(first, second, getNumberOfDigits(second))
 }
 
-func appendTwoIntegers(first int, second int, numberOfDigits int) int {
-    return first*int(math.Pow(10.0, float64(numberOfDigits))) + second
+func appendTwoIntegers(first int, second int, numberOfDigits int) float64 {
+    return float64(first)*math.Pow(10.0, float64(numberOfDigits)) + float64(second)
 }
 
 func getNumberOfDigits(value int) int {
