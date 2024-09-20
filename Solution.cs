@@ -28,12 +28,12 @@ public class Solution
     private int ComparatorAppendedIntegersInDecreasingOrder(int first, int second)
     {
         return AppendTwoIntegers(second, first, GetNumberOfDigits(first))
-                - AppendTwoIntegers(first, second, GetNumberOfDigits(second));
+            .CompareTo(AppendTwoIntegers(first, second, GetNumberOfDigits(second)));
     }
 
-    private int AppendTwoIntegers(int first, int second, int numberOfDigits)
+    private double AppendTwoIntegers(int first, int second, int numberOfDigits)
     {
-        return first * (int)Math.Pow(10, numberOfDigits) + second;
+        return first * Math.Pow(10, numberOfDigits) + second;
     }
 
     private int GetNumberOfDigits(int value)
