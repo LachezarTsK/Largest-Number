@@ -33,12 +33,12 @@ public class Solution {
     }
 
     private int comparatorAppendedIntegersInDecreasingOrder(int first, int second) {
-        return appendTwoIntegers(second, first, getNumberOfDigits(first))
-                - appendTwoIntegers(first, second, getNumberOfDigits(second));
+        return Double.compare(appendTwoIntegers(second, first, getNumberOfDigits(first)),
+                appendTwoIntegers(first, second, getNumberOfDigits(second)));
     }
 
-    private int appendTwoIntegers(int first, int second, int numberOfDigits) {
-        return first * (int) Math.pow(10, numberOfDigits) + second;
+    private double appendTwoIntegers(int first, int second, int numberOfDigits) {
+        return first * Math.pow(10, numberOfDigits) + second;
     }
 
     private int getNumberOfDigits(int value) {
