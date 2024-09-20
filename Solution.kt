@@ -26,10 +26,10 @@ class Solution {
 
     /*
     Even though all the primitive types in Kotlin are contained in wrapper classes
-    (as opposed to Java, which has raw primitives as well as their corresponding wrapper classes), 
-    in Kotlin, in order to apply custom comparators for sorting an array of primitives, 
-    even if these are in wrapper classes, there is a need for yet another class that would contain 
-    these wrapper classes. Thus, an array of class Value is created, which contains the integer wrapper class. 
+    (as opposed to Java, which has raw primitives as well as their corresponding wrapper classes),
+    in Kotlin, in order to apply custom comparators for sorting an array of primitives,
+    even if these are in wrapper classes, there is a need for yet another class that contains
+    these wrapper classes. Thus, an array of class Value is created, which contains the integer wrapper class.
      */
     private fun createIntegerWrapperArraySortedInDecreasingOrder(input: IntArray): Array<Value?> {
         val integerWrapper = arrayOfNulls<Value>(input.size)
@@ -37,17 +37,18 @@ class Solution {
             integerWrapper[i] = Value(input[i])
         }
         integerWrapper.sortWith() { first, second ->
-            comparatorAppendedIntegersInDecreasingOrder(first!!.value, second!!.value)}
+            comparatorAppendedIntegersInDecreasingOrder(first!!.value, second!!.value)
+        }
         return integerWrapper
     }
 
     private fun comparatorAppendedIntegersInDecreasingOrder(first: Int, second: Int): Int {
-        return appendTwoIntegers(second, first, getNumberOfDigits(first)) -
-                appendTwoIntegers(first, second, getNumberOfDigits(second))
+        return appendTwoIntegers(second, first, getNumberOfDigits(first))
+            .compareTo(appendTwoIntegers(first, second, getNumberOfDigits(second)))
     }
 
-    private fun appendTwoIntegers(first: Int, second: Int, numberOfDigits: Int): Int {
-        return first * (10.0).pow(numberOfDigits).toInt() + second
+    private fun appendTwoIntegers(first: Int, second: Int, numberOfDigits: Int): Double {
+        return first * (10.0).pow(numberOfDigits) + second
     }
 
     private fun getNumberOfDigits(value: Int): Int {
